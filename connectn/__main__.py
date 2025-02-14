@@ -1,16 +1,16 @@
-from typing import Tuple, List, Dict, Callable
+from typing import Tuple, Callable
+from connect_four import game as connect_four
 
-FINISHED_MODES: List[Tuple[str, Callable[[], None]]] = [
-    ("nan", lambda: None), 
-]
-
+FINISHED_MODES: Tuple[Tuple[str, Callable[[], None]]] = (
+    ("Connect 4", connect_four.start_game), 
+)
 
 def main() -> None:
     game_mode = menu(FINISHED_MODES)   
     game_mode()
     
     
-def menu(lookup: List[Tuple[str, Callable[[], None]]]) -> Callable[[], None]:
+def menu(lookup: Tuple[Tuple[str, Callable[[], None]]]) -> Callable[[], None]:
     print("Choose mode:")
     for i, (name, _) in enumerate(lookup):
         print(f"{i}: {name}")
