@@ -85,7 +85,6 @@ def start_game() -> None:
     b = Board(6,7)
     while True: 
         print(b)
-        print_bar()
         if play_move(b, True): 
             print(f"{get_colour(True)} wins!")
             break

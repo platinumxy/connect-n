@@ -1,8 +1,10 @@
 from typing import Tuple, Callable
 from connect_four import game as connect_four
+from connect_four_3d import game as connect_four_3d
 
-FINISHED_MODES: Tuple[Tuple[str, Callable[[], None]]] = (
+FINISHED_MODES: Tuple[Tuple[str, Callable[[], None]], ...] = (
     ("Connect 4", connect_four.start_game), 
+    ("Connect 4 3D", connect_four_3d.start_game)
 )
 
 def main() -> None:
@@ -10,13 +12,13 @@ def main() -> None:
     game_mode()
     
     
-def menu(lookup: Tuple[Tuple[str, Callable[[], None]]]) -> Callable[[], None]:
+def menu(lookup: Tuple[Tuple[str, Callable[[], None]], ...]) -> Callable[[], None]:
     print("Choose mode:")
     for i, (name, _) in enumerate(lookup):
-        print(f"{i}: {name}")
+        print(f"{i + 1}: {name}")
     
     try: 
-        return lookup[int(input("> "))][1]
+        return lookup[int(input("> ")) - 1 ][1]
     except (ValueError, IndexError):
         print("Invalid choice\n")
         return menu(lookup)
