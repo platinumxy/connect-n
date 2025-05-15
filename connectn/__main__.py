@@ -1,10 +1,12 @@
 from typing import Tuple, Callable
 from connect_four import game as connect_four
+from connect_four_inf import game as connect_four_inf
 from connect_four_3d import game as connect_four_3d
 from connect_n import game as connect_n
 
 FINISHED_MODES: Tuple[Tuple[str, Callable[[], None]], ...] = (
     ("Connect 4", connect_four.start_game), 
+    ("Connect 4 infinite", connect_four_inf.start_game),
     ("Connect N", connect_n.start_game),
     ("Connect 4 3D", connect_four_3d.start_game)
 )

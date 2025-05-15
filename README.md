@@ -6,7 +6,7 @@ After hearing someone recite there time in a coding interview having to implemen
 The goal:
 - [x] Normal connect 4 on an NxM grid
 - [x] Connect N
-- [ ] An infinite play area
+- [x] An infinite play area
 - [x] A 3D play area
 - [ ] nD play area
 - [ ] nD connect
